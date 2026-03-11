@@ -87,8 +87,8 @@
       background: linear-gradient(to bottom, transparent, var(--bg));
     }
     .hero-logo {
-      height: 80px;
-      margin-bottom: 2rem;
+      height: 140px;
+      margin-bottom: 2.5rem;
     }
     .hero h1 {
       font-size: clamp(2rem, 4vw, 3rem);
@@ -276,7 +276,7 @@
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero { padding: 8rem 1.5rem 4rem; }
-      .hero-logo { height: 60px; }
+      .hero-logo { height: 100px; }
       .brands-main { grid-template-columns: 1fr; }
       .side-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
       .nav-links { display: none; }
@@ -319,7 +319,7 @@
       <div class="fade-up">
         <p class="section-label" data-i18n="brands_label">Core Business</p>
         <h2 class="section-title" data-i18n="brands_title">Our Main Brands</h2>
-        <p class="section-subtitle" data-i18n="brands_subtitle">The two pillars at the heart of Triple Solutions, each leading in their respective domain.</p>
+        <p class="section-subtitle" data-i18n="brands_subtitle">The two pillars at the heart of Triple Solutions — both rooted in the catering industry, each leading in their respective domain.</p>
       </div>
 
       <div class="brands-main">
@@ -364,7 +364,7 @@
       <div class="fade-up">
         <p class="section-label" data-i18n="ventures_label">Ventures & Side Projects</p>
         <h2 class="section-title" data-i18n="ventures_title">What else we're building</h2>
-        <p class="section-subtitle" data-i18n="ventures_subtitle">Creative outlets and passion projects that complement our core activities.</p>
+        <p class="section-subtitle" data-i18n="ventures_subtitle">What happens when we can't sleep, have too much energy, and our heads are running wild with ideas.</p>
       </div>
 
       <div class="side-grid">
@@ -373,7 +373,13 @@
           <img src="logo_std.png" alt="3AD" class="side-card-logo">
           <div class="side-card-name">3AD</div>
           <div class="side-card-tag" data-i18n="3ad_tag">Printshop</div>
-          <p data-i18n="3ad_desc">Creative print production — from business cards and branding materials to large-format signage and custom merchandise.</p>
+          <p data-i18n="3ad_desc">Because sometimes a great idea needs to be printed on a really big banner. Or a tiny business card. We don't judge.</p>
+          <div class="side-card-links">
+            <a href="https://3ad.be" class="side-card-link" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              <span>3ad.be</span>
+            </a>
+          </div>
         </div>
 
         <!-- Sjoepapkes -->
@@ -381,7 +387,13 @@
           <img src="sjoepapkes.png" alt="Sjoepapkes" class="side-card-logo">
           <div class="side-card-name">Sjoepapkes</div>
           <div class="side-card-tag" data-i18n="sjoepapkes_tag">Bike Accessories</div>
-          <p data-i18n="sjoepapkes_desc">Cycling lifestyle brand offering unique accessories for riders who want to express their personality on two wheels. Your bike. Your vibe.</p>
+          <p data-i18n="sjoepapkes_desc">Born from a love of cycling and an inability to leave well enough alone. Unique accessories for riders who believe their bike deserves a personality too.</p>
+          <div class="side-card-links">
+            <a href="https://sjoepapkes.be" class="side-card-link" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              <span>sjoepapkes.be</span>
+            </a>
+          </div>
         </div>
 
         <!-- Draw Master -->
@@ -389,8 +401,12 @@
           <img src="DrawMasterAppLogo.png" alt="Draw Master" class="side-card-logo">
           <div class="side-card-name">Draw Master</div>
           <div class="side-card-tag" data-i18n="drawmaster_tag">Mobile App</div>
-          <p data-i18n="drawmaster_desc">A simple and fair lottery draw app — perfect for raffles, giveaways, and random selections. Available on the App Store.</p>
+          <p data-i18n="drawmaster_desc">The fairest lottery draw app you'll ever find — because "I'll just pick someone" never ends well at family gatherings.</p>
           <div class="side-card-links">
+            <a href="https://frederikarcanta.github.io/drawmaster-site/" class="side-card-link" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              <span data-i18n="drawmaster_website">Website</span>
+            </a>
             <a href="https://apps.apple.com/be/app/draw-master-by-arcanta/id6759605260" class="side-card-link" target="_blank">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
               <span data-i18n="drawmaster_appstore">Download on the App Store</span>
@@ -404,7 +420,7 @@
           <div class="side-card-name">OCG</div>
           <span class="badge-dev" data-i18n="ocg_badge">In Development</span>
           <div class="side-card-tag" data-i18n="ocg_tag">Open Cycling Group</div>
-          <p data-i18n="ocg_desc">A platform connecting cyclists for open group rides — making it easy to find, join, and organise rides in your area. Coming soon.</p>
+          <p data-i18n="ocg_desc">Finding people to ride with shouldn't be harder than the ride itself. A platform for open group rides — coming soon, once we stop cycling long enough to finish building it.</p>
         </div>
       </div>
     </div>
@@ -443,24 +459,25 @@
         hero_subtitle: 'Triple Solutions is a holding company bringing together expertise in food consulting, data-driven technology, creative production, and lifestyle brands.',
         brands_label: 'Core Business',
         brands_title: 'Our Main Brands',
-        brands_subtitle: 'The two pillars at the heart of Triple Solutions, each leading in their respective domain.',
+        brands_subtitle: 'The two pillars at the heart of Triple Solutions — both rooted in the catering industry, each leading in their respective domain.',
         tcc_tagline: 'Catering Advisory & Management',
         tcc_desc: 'Independent consulting for catering in captive environments. From data analysis and concept design to full operational management — we guide organisations towards a catering experience that works.',
         arcanta_tagline: 'Data & Software Solutions',
         arcanta_desc: 'Custom data platforms and analytics tools that turn operational complexity into clear insights. From interactive dashboards to automated reporting — built for professionals who rely on data to decide.',
         ventures_label: 'Ventures & Side Projects',
         ventures_title: 'What else we\'re building',
-        ventures_subtitle: 'Creative outlets and passion projects that complement our core activities.',
+        ventures_subtitle: 'What happens when we can\'t sleep, have too much energy, and our heads are running wild with ideas.',
         '3ad_tag': 'Printshop',
-        '3ad_desc': 'Creative print production — from business cards and branding materials to large-format signage and custom merchandise.',
+        '3ad_desc': 'Because sometimes a great idea needs to be printed on a really big banner. Or a tiny business card. We don\'t judge.',
         sjoepapkes_tag: 'Bike Accessories',
-        sjoepapkes_desc: 'Cycling lifestyle brand offering unique accessories for riders who want to express their personality on two wheels. Your bike. Your vibe.',
+        sjoepapkes_desc: 'Born from a love of cycling and an inability to leave well enough alone. Unique accessories for riders who believe their bike deserves a personality too.',
         drawmaster_tag: 'Mobile App',
-        drawmaster_desc: 'A simple and fair lottery draw app — perfect for raffles, giveaways, and random selections. Available on the App Store.',
+        drawmaster_desc: 'The fairest lottery draw app you\'ll ever find — because "I\'ll just pick someone" never ends well at family gatherings.',
+        drawmaster_website: 'Website',
         drawmaster_appstore: 'Download on the App Store',
         ocg_badge: 'In Development',
         ocg_tag: 'Open Cycling Group',
-        ocg_desc: 'A platform connecting cyclists for open group rides — making it easy to find, join, and organise rides in your area. Coming soon.',
+        ocg_desc: 'Finding people to ride with shouldn\'t be harder than the ride itself. A platform for open group rides — coming soon, once we stop cycling long enough to finish building it.',
         footer_contact: 'info@triple-solutions.com',
         footer_copy: '&copy; 2026 Triple Solutions. All rights reserved.'
       },
@@ -472,24 +489,25 @@
         hero_subtitle: 'Triple Solutions is een holdingbedrijf dat expertise samenbrengt in cateringadvies, datagedreven technologie, creatieve productie en lifestyle merken.',
         brands_label: 'Kernactiviteit',
         brands_title: 'Onze Hoofdmerken',
-        brands_subtitle: 'De twee pijlers in het hart van Triple Solutions, elk toonaangevend in hun domein.',
+        brands_subtitle: 'De twee pijlers in het hart van Triple Solutions — beide geworteld in de cateringsector, elk toonaangevend in hun domein.',
         tcc_tagline: 'Cateringadvies & -beheer',
         tcc_desc: 'Onafhankelijk advies voor catering in captive omgevingen. Van data-analyse en conceptontwerp tot volledig operationeel beheer — wij begeleiden organisaties naar een cateringervaring die werkt.',
         arcanta_tagline: 'Data- & Softwareoplossingen',
         arcanta_desc: 'Dataplatformen en analysetools op maat die operationele complexiteit vertalen naar heldere inzichten. Van interactieve dashboards tot geautomatiseerde rapportage — gebouwd voor professionals die beslissen op basis van data.',
         ventures_label: 'Ventures & Nevenprojecten',
         ventures_title: 'Wat we nog meer bouwen',
-        ventures_subtitle: 'Creatieve uitlaatkleppen en passieprojecten die onze kernactiviteiten aanvullen.',
+        ventures_subtitle: 'Wat er gebeurt als we niet kunnen slapen, te veel energie hebben en ons hoofd op hol is geslagen met ideeën.',
         '3ad_tag': 'Drukkerij',
-        '3ad_desc': 'Creatieve drukproductie — van visitekaartjes en brandingmateriaal tot groot formaat signalisatie en gepersonaliseerde merchandise.',
+        '3ad_desc': 'Want soms moet een geniaal idee gewoon op een heel grote banner gedrukt worden. Of een piepklein visitekaartje. Wij oordelen niet.',
         sjoepapkes_tag: 'Fietsaccessoires',
-        sjoepapkes_desc: 'Lifestyle fietsmerk met unieke accessoires voor fietsers die hun persoonlijkheid willen uitdrukken op twee wielen. Your bike. Your vibe.',
+        sjoepapkes_desc: 'Geboren uit een liefde voor fietsen en het onvermogen om dingen met rust te laten. Unieke accessoires voor fietsers die vinden dat hun fiets ook een persoonlijkheid verdient.',
         drawmaster_tag: 'Mobiele App',
-        drawmaster_desc: 'Een eenvoudige en eerlijke loting-app — perfect voor tombola\'s, weggeefacties en willekeurige selecties. Beschikbaar in de App Store.',
+        drawmaster_desc: 'De eerlijkste loting-app die je ooit zal vinden — want "ik kies er gewoon eentje" loopt nooit goed af op familiefeestjes.',
+        drawmaster_website: 'Website',
         drawmaster_appstore: 'Download in de App Store',
         ocg_badge: 'In Ontwikkeling',
         ocg_tag: 'Open Cycling Group',
-        ocg_desc: 'Een platform dat fietsers verbindt voor open groepsritten — eenvoudig ritten vinden, deelnemen en organiseren in jouw buurt. Binnenkort beschikbaar.',
+        ocg_desc: 'Mensen vinden om mee te fietsen zou niet moeilijker moeten zijn dan de rit zelf. Een platform voor open groepsritten — binnenkort beschikbaar, zodra we lang genoeg stoppen met fietsen om het af te bouwen.',
         footer_contact: 'info@triple-solutions.com',
         footer_copy: '&copy; 2026 Triple Solutions. Alle rechten voorbehouden.'
       },
@@ -501,24 +519,25 @@
         hero_subtitle: 'Triple Solutions est une société holding réunissant une expertise en conseil catering, technologie axée sur les données, production créative et marques lifestyle.',
         brands_label: 'Activité Principale',
         brands_title: 'Nos Marques Principales',
-        brands_subtitle: 'Les deux piliers au cœur de Triple Solutions, chacun leader dans son domaine.',
+        brands_subtitle: 'Les deux piliers au cœur de Triple Solutions — tous deux enracinés dans le secteur du catering, chacun leader dans son domaine.',
         tcc_tagline: 'Conseil & Gestion en Catering',
         tcc_desc: 'Conseil indépendant pour la restauration en environnements captifs. De l\'analyse des données à la conception de concepts jusqu\'à la gestion opérationnelle complète — nous guidons les organisations vers une expérience catering qui fonctionne.',
         arcanta_tagline: 'Solutions Data & Logicielles',
         arcanta_desc: 'Plateformes de données et outils d\'analyse sur mesure qui transforment la complexité opérationnelle en insights clairs. Des tableaux de bord interactifs aux rapports automatisés — conçus pour les professionnels qui décident sur base de données.',
         ventures_label: 'Ventures & Projets Annexes',
         ventures_title: 'Ce que nous construisons aussi',
-        ventures_subtitle: 'Des exutoires créatifs et projets passion qui complètent nos activités principales.',
+        ventures_subtitle: 'Ce qui se passe quand on ne dort pas, qu\'on a trop d\'énergie et que notre tête déborde d\'idées.',
         '3ad_tag': 'Imprimerie',
-        '3ad_desc': 'Production d\'impression créative — des cartes de visite et matériel de branding à la signalétique grand format et au merchandising personnalisé.',
+        '3ad_desc': 'Parce que parfois une idée géniale doit être imprimée sur une très grande bannière. Ou une toute petite carte de visite. On ne juge pas.',
         sjoepapkes_tag: 'Accessoires Vélo',
-        sjoepapkes_desc: 'Marque lifestyle vélo proposant des accessoires uniques pour les cyclistes qui veulent exprimer leur personnalité sur deux roues. Your bike. Your vibe.',
+        sjoepapkes_desc: 'Né d\'un amour du vélo et d\'une incapacité à laisser les choses tranquilles. Des accessoires uniques pour les cyclistes qui pensent que leur vélo mérite aussi une personnalité.',
         drawmaster_tag: 'Application Mobile',
-        drawmaster_desc: 'Une application de tirage au sort simple et équitable — parfaite pour les tombolas, les concours et les sélections aléatoires. Disponible sur l\'App Store.',
+        drawmaster_desc: 'L\'application de tirage au sort la plus équitable que vous trouverez — parce que "je choisis quelqu\'un" ne finit jamais bien aux réunions de famille.',
+        drawmaster_website: 'Site web',
         drawmaster_appstore: 'Télécharger sur l\'App Store',
         ocg_badge: 'En Développement',
         ocg_tag: 'Open Cycling Group',
-        ocg_desc: 'Une plateforme connectant les cyclistes pour des sorties de groupe ouvertes — trouvez, rejoignez et organisez facilement des sorties dans votre région. Bientôt disponible.',
+        ocg_desc: 'Trouver des gens pour rouler ensemble ne devrait pas être plus difficile que la sortie elle-même. Une plateforme pour les sorties de groupe ouvertes — bientôt disponible, dès qu\'on arrête de pédaler assez longtemps pour finir de la construire.',
         footer_contact: 'info@triple-solutions.com',
         footer_copy: '&copy; 2026 Triple Solutions. Tous droits réservés.'
       }
