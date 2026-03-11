@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triple Solutions — Innovation through Diversity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #2B5DA6;
+      --blue-light: #4A7BC4;
+      --blue-dark: #1E4278;
+      --green: #5BA34B;
+      --green-light: #7BBF6B;
+      --bg: #FAFBFC;
+      --bg-alt: #F0F2F5;
+      --bg-dark: #1A1D24;
+      --text: #2C3E50;
+      --text-light: #6B7B8D;
+      --white: #FFFFFF;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250, 251, 252, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: var(--shadow); }
+    .nav-inner {
+      max-width: 1140px; margin: 0 auto;
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo { height: 36px; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-light);
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    .lang-switch { display: flex; gap: 4px; }
+    .lang-switch button {
+      background: none; border: 1.5px solid transparent; cursor: pointer;
+      font-size: 0.8rem; font-weight: 600; padding: 4px 10px;
+      border-radius: 6px; color: var(--text-light);
+      transition: all 0.2s;
+    }
+    .lang-switch button.active {
+      border-color: var(--blue); color: var(--blue); background: rgba(43, 93, 166, 0.06);
+    }
+    .lang-switch button:hover:not(.active) { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      padding: 10rem 2rem 5rem;
+      text-align: center;
+      background: linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 100%);
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+    }
+    .hero-logo {
+      height: 80px;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 span { color: var(--blue); }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1140px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 3px;
+      color: var(--blue); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.05rem; color: var(--text-light);
+      max-width: 600px; margin-bottom: 3rem;
+    }
+
+    /* BRAND CARDS — Main */
+    .brands-main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .brand-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    .brand-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .brand-card-header {
+      display: flex; align-items: center; gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .brand-card-logo {
+      height: 48px;
+      flex-shrink: 0;
+    }
+    .brand-card-name {
+      font-size: 1.3rem; font-weight: 700; color: var(--text);
+    }
+    .brand-card-tagline {
+      font-size: 0.85rem; color: var(--text-light); font-weight: 500;
+    }
+    .brand-card p {
+      font-size: 0.95rem; color: var(--text-light);
+      line-height: 1.8; flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .brand-card-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9rem; font-weight: 600;
+      color: var(--blue); text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .brand-card-link:hover { gap: 0.75rem; }
+    .brand-card-link svg {
+      width: 16px; height: 16px;
+      transition: transform 0.2s;
+    }
+
+    /* SIDE PROJECTS */
+    .side-projects-section { background: var(--bg-alt); }
+
+    .side-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .side-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+    .side-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .side-card-logo {
+      height: 56px;
+      margin-bottom: 1rem;
+      object-fit: contain;
+    }
+    .side-card-name {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.25rem;
+    }
+    .side-card-tag {
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--text-light); margin-bottom: 0.75rem;
+    }
+    .side-card p {
+      font-size: 0.88rem; color: var(--text-light);
+      line-height: 1.7; flex: 1;
+      margin-bottom: 1rem;
+    }
+    .side-card-links {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      width: 100%;
+    }
+    .side-card-link {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--blue); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .side-card-link:hover { color: var(--blue-dark); }
+    .side-card-link svg { width: 14px; height: 14px; }
+
+    .badge-dev {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-dark); color: rgba(255,255,255,0.6);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    footer .footer-inner {
+      max-width: 1140px; margin: 0 auto;
+    }
+    footer .footer-logo {
+      height: 32px; margin-bottom: 1rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+    }
+    footer p { font-size: 0.85rem; line-height: 1.8; }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    footer a:hover { color: #fff; }
+    .footer-divider {
+      width: 40px; height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 1.5rem auto;
+    }
+
+    /* ANIMATIONS */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { padding: 8rem 1.5rem 4rem; }
+      .hero-logo { height: 60px; }
+      .brands-main { grid-template-columns: 1fr; }
+      .side-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .side-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <img src="tripple logo_groot.png" alt="Triple Solutions" class="nav-logo">
+      <ul class="nav-links">
+        <li><a href="#brands" data-i18n="nav_brands">Our Brands</a></li>
+        <li><a href="#ventures" data-i18n="nav_ventures">Ventures</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+      <div class="lang-switch">
+        <button class="active" onclick="setLang('en')">EN</button>
+        <button onclick="setLang('nl')">NL</button>
+        <button onclick="setLang('fr')">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="tripple logo_groot.png" alt="Triple Solutions" class="hero-logo">
+    <h1 data-i18n="hero_title">Building brands that <span>matter</span></h1>
+    <p data-i18n="hero_subtitle">Triple Solutions is a holding company bringing together expertise in food consulting, data-driven technology, creative production, and lifestyle brands.</p>
+  </section>
+
+  <!-- MAIN BRANDS -->
+  <section id="brands">
+    <div class="container">
+      <div class="fade-up">
+        <p class="section-label" data-i18n="brands_label">Core Business</p>
+        <h2 class="section-title" data-i18n="brands_title">Our Main Brands</h2>
+        <p class="section-subtitle" data-i18n="brands_subtitle">The two pillars at the heart of Triple Solutions, each leading in their respective domain.</p>
+      </div>
+
+      <div class="brands-main">
+        <!-- The Catering Consultant -->
+        <div class="brand-card fade-up">
+          <div class="brand-card-header">
+            <img src="tcc_short_600px.png" alt="The Catering Consultant" class="brand-card-logo">
+            <div>
+              <div class="brand-card-name">The Catering Consultant</div>
+              <div class="brand-card-tagline" data-i18n="tcc_tagline">Catering Advisory & Management</div>
+            </div>
+          </div>
+          <p data-i18n="tcc_desc">Independent consulting for catering in captive environments. From data analysis and concept design to full operational management — we guide organisations towards a catering experience that works.</p>
+          <a href="https://thecateringconsultant.be" class="brand-card-link" target="_blank">
+            <span>thecateringconsultant.be</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+
+        <!-- Arcanta -->
+        <div class="brand-card fade-up">
+          <div class="brand-card-header">
+            <img src="basis logo NB.png" alt="Arcanta" class="brand-card-logo">
+            <div>
+              <div class="brand-card-name">Arcanta</div>
+              <div class="brand-card-tagline" data-i18n="arcanta_tagline">Data & Software Solutions</div>
+            </div>
+          </div>
+          <p data-i18n="arcanta_desc">Custom data platforms and analytics tools that turn operational complexity into clear insights. From interactive dashboards to automated reporting — built for professionals who rely on data to decide.</p>
+          <a href="https://arcanta.io" class="brand-card-link" target="_blank">
+            <span>arcanta.io</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIDE PROJECTS / VENTURES -->
+  <section id="ventures" class="side-projects-section">
+    <div class="container">
+      <div class="fade-up">
+        <p class="section-label" data-i18n="ventures_label">Ventures & Side Projects</p>
+        <h2 class="section-title" data-i18n="ventures_title">What else we're building</h2>
+        <p class="section-subtitle" data-i18n="ventures_subtitle">Creative outlets and passion projects that complement our core activities.</p>
+      </div>
+
+      <div class="side-grid">
+        <!-- 3AD -->
+        <div class="side-card fade-up">
+          <img src="logo_std.png" alt="3AD" class="side-card-logo">
+          <div class="side-card-name">3AD</div>
+          <div class="side-card-tag" data-i18n="3ad_tag">Printshop</div>
+          <p data-i18n="3ad_desc">Creative print production — from business cards and branding materials to large-format signage and custom merchandise.</p>
+        </div>
+
+        <!-- Sjoepapkes -->
+        <div class="side-card fade-up">
+          <img src="sjoepapkes.png" alt="Sjoepapkes" class="side-card-logo">
+          <div class="side-card-name">Sjoepapkes</div>
+          <div class="side-card-tag" data-i18n="sjoepapkes_tag">Bike Accessories</div>
+          <p data-i18n="sjoepapkes_desc">Cycling lifestyle brand offering unique accessories for riders who want to express their personality on two wheels. Your bike. Your vibe.</p>
+        </div>
+
+        <!-- Draw Master -->
+        <div class="side-card fade-up">
+          <img src="DrawMasterAppLogo.png" alt="Draw Master" class="side-card-logo">
+          <div class="side-card-name">Draw Master</div>
+          <div class="side-card-tag" data-i18n="drawmaster_tag">Mobile App</div>
+          <p data-i18n="drawmaster_desc">A simple and fair lottery draw app — perfect for raffles, giveaways, and random selections. Available on the App Store.</p>
+          <div class="side-card-links">
+            <a href="https://apps.apple.com/be/app/draw-master-by-arcanta/id6759605260" class="side-card-link" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span data-i18n="drawmaster_appstore">Download on the App Store</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- OCG -->
+        <div class="side-card fade-up">
+          <img src="image2.png" alt="OCG" class="side-card-logo">
+          <div class="side-card-name">OCG</div>
+          <span class="badge-dev" data-i18n="ocg_badge">In Development</span>
+          <div class="side-card-tag" data-i18n="ocg_tag">Open Cycling Group</div>
+          <p data-i18n="ocg_desc">A platform connecting cyclists for open group rides — making it easy to find, join, and organise rides in your area. Coming soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <img src="tripple logo_groot.png" alt="Triple Solutions" class="footer-logo">
+      <p data-i18n="footer_contact">info@triple-solutions.com</p>
+      <div class="footer-divider"></div>
+      <p data-i18n="footer_copy">&copy; 2026 Triple Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // NAV SCROLL
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // FADE-UP
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // I18N
+    const translations = {
+      en: {
+        nav_brands: 'Our Brands',
+        nav_ventures: 'Ventures',
+        nav_contact: 'Contact',
+        hero_title: 'Building brands that <span>matter</span>',
+        hero_subtitle: 'Triple Solutions is a holding company bringing together expertise in food consulting, data-driven technology, creative production, and lifestyle brands.',
+        brands_label: 'Core Business',
+        brands_title: 'Our Main Brands',
+        brands_subtitle: 'The two pillars at the heart of Triple Solutions, each leading in their respective domain.',
+        tcc_tagline: 'Catering Advisory & Management',
+        tcc_desc: 'Independent consulting for catering in captive environments. From data analysis and concept design to full operational management — we guide organisations towards a catering experience that works.',
+        arcanta_tagline: 'Data & Software Solutions',
+        arcanta_desc: 'Custom data platforms and analytics tools that turn operational complexity into clear insights. From interactive dashboards to automated reporting — built for professionals who rely on data to decide.',
+        ventures_label: 'Ventures & Side Projects',
+        ventures_title: 'What else we\'re building',
+        ventures_subtitle: 'Creative outlets and passion projects that complement our core activities.',
+        '3ad_tag': 'Printshop',
+        '3ad_desc': 'Creative print production — from business cards and branding materials to large-format signage and custom merchandise.',
+        sjoepapkes_tag: 'Bike Accessories',
+        sjoepapkes_desc: 'Cycling lifestyle brand offering unique accessories for riders who want to express their personality on two wheels. Your bike. Your vibe.',
+        drawmaster_tag: 'Mobile App',
+        drawmaster_desc: 'A simple and fair lottery draw app — perfect for raffles, giveaways, and random selections. Available on the App Store.',
+        drawmaster_appstore: 'Download on the App Store',
+        ocg_badge: 'In Development',
+        ocg_tag: 'Open Cycling Group',
+        ocg_desc: 'A platform connecting cyclists for open group rides — making it easy to find, join, and organise rides in your area. Coming soon.',
+        footer_contact: 'info@triple-solutions.com',
+        footer_copy: '&copy; 2026 Triple Solutions. All rights reserved.'
+      },
+      nl: {
+        nav_brands: 'Onze Merken',
+        nav_ventures: 'Ventures',
+        nav_contact: 'Contact',
+        hero_title: 'Merken bouwen die <span>ertoe doen</span>',
+        hero_subtitle: 'Triple Solutions is een holdingbedrijf dat expertise samenbrengt in cateringadvies, datagedreven technologie, creatieve productie en lifestyle merken.',
+        brands_label: 'Kernactiviteit',
+        brands_title: 'Onze Hoofdmerken',
+        brands_subtitle: 'De twee pijlers in het hart van Triple Solutions, elk toonaangevend in hun domein.',
+        tcc_tagline: 'Cateringadvies & -beheer',
+        tcc_desc: 'Onafhankelijk advies voor catering in captive omgevingen. Van data-analyse en conceptontwerp tot volledig operationeel beheer — wij begeleiden organisaties naar een cateringervaring die werkt.',
+        arcanta_tagline: 'Data- & Softwareoplossingen',
+        arcanta_desc: 'Dataplatformen en analysetools op maat die operationele complexiteit vertalen naar heldere inzichten. Van interactieve dashboards tot geautomatiseerde rapportage — gebouwd voor professionals die beslissen op basis van data.',
+        ventures_label: 'Ventures & Nevenprojecten',
+        ventures_title: 'Wat we nog meer bouwen',
+        ventures_subtitle: 'Creatieve uitlaatkleppen en passieprojecten die onze kernactiviteiten aanvullen.',
+        '3ad_tag': 'Drukkerij',
+        '3ad_desc': 'Creatieve drukproductie — van visitekaartjes en brandingmateriaal tot groot formaat signalisatie en gepersonaliseerde merchandise.',
+        sjoepapkes_tag: 'Fietsaccessoires',
+        sjoepapkes_desc: 'Lifestyle fietsmerk met unieke accessoires voor fietsers die hun persoonlijkheid willen uitdrukken op twee wielen. Your bike. Your vibe.',
+        drawmaster_tag: 'Mobiele App',
+        drawmaster_desc: 'Een eenvoudige en eerlijke loting-app — perfect voor tombola\'s, weggeefacties en willekeurige selecties. Beschikbaar in de App Store.',
+        drawmaster_appstore: 'Download in de App Store',
+        ocg_badge: 'In Ontwikkeling',
+        ocg_tag: 'Open Cycling Group',
+        ocg_desc: 'Een platform dat fietsers verbindt voor open groepsritten — eenvoudig ritten vinden, deelnemen en organiseren in jouw buurt. Binnenkort beschikbaar.',
+        footer_contact: 'info@triple-solutions.com',
+        footer_copy: '&copy; 2026 Triple Solutions. Alle rechten voorbehouden.'
+      },
+      fr: {
+        nav_brands: 'Nos Marques',
+        nav_ventures: 'Ventures',
+        nav_contact: 'Contact',
+        hero_title: 'Construire des marques qui <span>comptent</span>',
+        hero_subtitle: 'Triple Solutions est une société holding réunissant une expertise en conseil catering, technologie axée sur les données, production créative et marques lifestyle.',
+        brands_label: 'Activité Principale',
+        brands_title: 'Nos Marques Principales',
+        brands_subtitle: 'Les deux piliers au cœur de Triple Solutions, chacun leader dans son domaine.',
+        tcc_tagline: 'Conseil & Gestion en Catering',
+        tcc_desc: 'Conseil indépendant pour la restauration en environnements captifs. De l\'analyse des données à la conception de concepts jusqu\'à la gestion opérationnelle complète — nous guidons les organisations vers une expérience catering qui fonctionne.',
+        arcanta_tagline: 'Solutions Data & Logicielles',
+        arcanta_desc: 'Plateformes de données et outils d\'analyse sur mesure qui transforment la complexité opérationnelle en insights clairs. Des tableaux de bord interactifs aux rapports automatisés — conçus pour les professionnels qui décident sur base de données.',
+        ventures_label: 'Ventures & Projets Annexes',
+        ventures_title: 'Ce que nous construisons aussi',
+        ventures_subtitle: 'Des exutoires créatifs et projets passion qui complètent nos activités principales.',
+        '3ad_tag': 'Imprimerie',
+        '3ad_desc': 'Production d\'impression créative — des cartes de visite et matériel de branding à la signalétique grand format et au merchandising personnalisé.',
+        sjoepapkes_tag: 'Accessoires Vélo',
+        sjoepapkes_desc: 'Marque lifestyle vélo proposant des accessoires uniques pour les cyclistes qui veulent exprimer leur personnalité sur deux roues. Your bike. Your vibe.',
+        drawmaster_tag: 'Application Mobile',
+        drawmaster_desc: 'Une application de tirage au sort simple et équitable — parfaite pour les tombolas, les concours et les sélections aléatoires. Disponible sur l\'App Store.',
+        drawmaster_appstore: 'Télécharger sur l\'App Store',
+        ocg_badge: 'En Développement',
+        ocg_tag: 'Open Cycling Group',
+        ocg_desc: 'Une plateforme connectant les cyclistes pour des sorties de groupe ouvertes — trouvez, rejoignez et organisez facilement des sorties dans votre région. Bientôt disponible.',
+        footer_contact: 'info@triple-solutions.com',
+        footer_copy: '&copy; 2026 Triple Solutions. Tous droits réservés.'
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+      });
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          if (el.getAttribute('data-i18n-html') === 'true' || t[key].includes('<')) {
+            el.innerHTML = t[key];
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      });
+      document.documentElement.lang = lang === 'en' ? 'en' : lang === 'nl' ? 'nl' : 'fr';
+    }
+  </script>
+
+</body>
+</html>
