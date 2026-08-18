@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3AD &amp; Sjoepapkes — On Hold | Triple Solutions</title>
+  <meta name="description" content="Why 3AD and Sjoepapkes are currently on hold following the new EU packaging legislation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #2B5DA6;
+      --blue-dark: #1E4278;
+      --bg: #FAFBFC;
+      --bg-alt: #F0F2F5;
+      --bg-dark: #1A1D24;
+      --text: #2C3E50;
+      --text-light: #6B7B8D;
+      --white: #FFFFFF;
+      --red: #B4231D;
+      --red-soft: #FDF2F1;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250, 251, 252, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: var(--shadow); }
+    .nav-inner {
+      max-width: 1140px; margin: 0 auto;
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+      height: 64px;
+    }
+    .nav-logo { height: 50px; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      text-decoration: none; color: var(--text-light);
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--blue); }
+    .nav-back svg { width: 15px; height: 15px; }
+
+    .lang-switch { display: flex; gap: 4px; }
+    .lang-switch button {
+      background: none; border: 1.5px solid transparent; cursor: pointer;
+      font-size: 0.8rem; font-weight: 600; padding: 4px 10px;
+      border-radius: 6px; color: var(--text-light);
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .lang-switch button.active {
+      border-color: var(--blue); color: var(--blue); background: rgba(43, 93, 166, 0.06);
+    }
+    .lang-switch button:hover:not(.active) { color: var(--text); }
+
+    /* HEADER */
+    .page-header {
+      padding: 9rem 2rem 3.5rem;
+      background: linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 100%);
+      text-align: center;
+    }
+    .status-pill {
+      display: inline-block;
+      background: linear-gradient(135deg, #E4322B, #B4231D);
+      color: #fff;
+      font-size: 0.66rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.6px;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .page-header h1 {
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+      font-weight: 800; letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+    .page-header p {
+      font-size: 1.05rem; color: var(--text-light);
+      max-width: 620px; margin: 0 auto;
+    }
+
+    /* SECTIONS */
+    section { padding: 4rem 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    /* BRAND ROW */
+    .brand-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: -6rem;
+      margin-bottom: 4rem;
+    }
+    .brand-tile {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      padding: 2rem;
+    }
+    .brand-tile-flag {
+      width: calc(100% + 4rem);
+      margin: -2rem -2rem 1.75rem;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, #E4322B, #B4231D);
+      color: #fff;
+      font-size: 0.66rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.6px;
+    }
+    .brand-tile img {
+      height: 60px; margin-bottom: 1.1rem;
+      object-fit: contain;
+      filter: grayscale(1); opacity: 0.5;
+    }
+    .brand-tile-name { font-size: 1.1rem; font-weight: 700; }
+    .brand-tile-tag {
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--text-light); margin-bottom: 1rem;
+    }
+    .brand-tile a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--red); text-decoration: none;
+      margin-top: auto;
+      transition: color 0.2s;
+    }
+    .brand-tile a:hover { color: #8C1A16; }
+    .brand-tile a svg { width: 14px; height: 14px; }
+
+    /* EXPLANATION BLOCKS */
+    .blocks { display: grid; gap: 1.25rem; }
+    .block {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-left: 3px solid var(--blue);
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow);
+    }
+    .block.is-red { border-left-color: var(--red); }
+    .block h2 {
+      font-size: 1.02rem; font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .block p { font-size: 0.92rem; color: var(--text-light); }
+
+    /* CLOSING */
+    .closing {
+      background: var(--red-soft);
+      border: 1px solid rgba(180, 35, 29, 0.18);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .closing p { font-size: 0.95rem; color: var(--red); font-weight: 600; }
+    .closing-links {
+      display: flex; flex-wrap: wrap;
+      gap: 0.5rem 2rem; justify-content: center;
+      margin-top: 0.75rem;
+    }
+    .closing a {
+      display: inline-block;
+      color: var(--red); font-weight: 700; font-size: 1rem;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(180, 35, 29, 0.3);
+    }
+    .closing a:hover { border-bottom-color: var(--red); }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-dark); color: rgba(255,255,255,0.6);
+      padding: 3rem 2rem; text-align: center;
+    }
+    footer .footer-inner { max-width: 1140px; margin: 0 auto; }
+    footer .footer-logo {
+      height: 32px; margin-bottom: 1rem;
+      filter: brightness(0) invert(1); opacity: 0.7;
+    }
+    footer p { font-size: 0.85rem; line-height: 1.8; }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    footer a:hover { color: #fff; }
+    .footer-divider {
+      width: 40px; height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 1.5rem auto;
+    }
+
+    /* ANIMATIONS */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .page-header { padding: 7.5rem 1.5rem 3rem; }
+      section { padding: 3rem 1.5rem; }
+      .brand-row { margin-top: -4rem; }
+      .block { padding: 1.5rem; }
+      .nav-back span { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html"><img src="tripple logo_groot.png" alt="Triple Solutions" class="nav-logo"></a>
+      <a href="index.html#ventures" class="nav-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        <span data-i18n="nav_back">Back to Triple Solutions</span>
+      </a>
+      <div class="lang-switch">
+        <button class="active" onclick="setLang('en')">EN</button>
+        <button onclick="setLang('nl')">NL</button>
+        <button onclick="setLang('fr')">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <span class="status-pill" data-i18n="pill">On Hold</span>
+    <h1 data-i18n="title">3AD and Sjoepapkes are on hold</h1>
+    <p data-i18n="intro">Two side projects we loved building. Here is what changed, what it means, and what happens next.</p>
+  </header>
+
+  <section>
+    <div class="container">
+
+      <!-- BRANDS -->
+      <div class="brand-row">
+        <div class="brand-tile fade-up">
+          <div class="brand-tile-flag" data-i18n="pill">On Hold</div>
+          <img src="logo_std.png" alt="3AD">
+          <div class="brand-tile-name">3AD</div>
+          <div class="brand-tile-tag" data-i18n="tag_3ad">Printshop</div>
+          <a href="mailto:info@3ad.be">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            <span>info@3ad.be</span>
+          </a>
+        </div>
+        <div class="brand-tile fade-up">
+          <div class="brand-tile-flag" data-i18n="pill">On Hold</div>
+          <img src="sjoepapkes.png" alt="Sjoepapkes">
+          <div class="brand-tile-name">Sjoepapkes</div>
+          <div class="brand-tile-tag" data-i18n="tag_sjoep">Bike Accessories</div>
+          <a href="mailto:info@sjoepapkes.be">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            <span>info@sjoepapkes.be</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- BLOCKS -->
+      <div class="blocks">
+        <div class="block fade-up">
+          <h2 data-i18n="b1_title">What changed</h2>
+          <p data-i18n="b1_body">The new EU packaging legislation introduces registration, reporting and contribution obligations for everyone placing packaged goods on the market. The rules apply regardless of how small the volume is.</p>
+        </div>
+
+        <div class="block fade-up">
+          <h2 data-i18n="b2_title">Why that weighs heavily on us</h2>
+          <p data-i18n="b2_body">3AD and Sjoepapkes are hobby projects. They exist because we enjoy making things, not because there is a business case behind them. The administrative and financial burden that comes with the new rules simply does not match what these projects bring in. We are therefore closing both web shops so no further costs keep running.</p>
+        </div>
+
+        <div class="block fade-up">
+          <h2 data-i18n="b3_title">What we are doing now</h2>
+          <p data-i18n="b3_body">We are continuing our research. We are mapping out exactly what the legislation requires, what compliance would cost, and whether a workable form exists to carry on. That work is ongoing.</p>
+        </div>
+
+        <div class="block is-red fade-up">
+          <h2 data-i18n="b4_title">Will they come back?</h2>
+          <p data-i18n="b4_body">Honestly, we do not know. Both projects are paused and we cannot promise a restart. If we find a form that works, we will say so here.</p>
+        </div>
+      </div>
+
+      <!-- CLOSING -->
+      <div class="closing fade-up">
+        <p data-i18n="closing">Questions about an order or something we made for you? We are still here.</p>
+        <div class="closing-links">
+          <a href="mailto:info@3ad.be">info@3ad.be</a>
+          <a href="mailto:info@sjoepapkes.be">info@sjoepapkes.be</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <img src="tripple logo_groot.png" alt="Triple Solutions" class="footer-logo">
+      <p><a href="mailto:info@triple-solutions.com">info@triple-solutions.com</a></p>
+      <div class="footer-divider"></div>
+      <p data-i18n="footer_copy">&copy; 2026 Triple Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // NAV SCROLL
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // FADE-UP
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // I18N
+    const translations = {
+      en: {
+        nav_back: 'Back to Triple Solutions',
+        pill: 'On Hold',
+        title: '3AD and Sjoepapkes are on hold',
+        intro: 'Two side projects we loved building. Here is what changed, what it means, and what happens next.',
+        tag_3ad: 'Printshop',
+        tag_sjoep: 'Bike Accessories',
+        b1_title: 'What changed',
+        b1_body: 'The new EU packaging legislation introduces registration, reporting and contribution obligations for everyone placing packaged goods on the market. The rules apply regardless of how small the volume is.',
+        b2_title: 'Why that weighs heavily on us',
+        b2_body: '3AD and Sjoepapkes are hobby projects. They exist because we enjoy making things, not because there is a business case behind them. The administrative and financial burden that comes with the new rules simply does not match what these projects bring in. We are therefore closing both web shops so no further costs keep running.',
+        b3_title: 'What we are doing now',
+        b3_body: 'We are continuing our research. We are mapping out exactly what the legislation requires, what compliance would cost, and whether a workable form exists to carry on. That work is ongoing.',
+        b4_title: 'Will they come back?',
+        b4_body: 'Honestly, we do not know. Both projects are paused and we cannot promise a restart. If we find a form that works, we will say so here.',
+        closing: 'Questions about an order or something we made for you? We are still here.',
+        footer_copy: '&copy; 2026 Triple Solutions. All rights reserved.'
+      },
+      nl: {
+        nav_back: 'Terug naar Triple Solutions',
+        pill: 'Stopgezet',
+        title: '3AD en Sjoepapkes staan op pauze',
+        intro: 'Twee nevenprojecten die we met plezier hebben opgebouwd. Dit is wat er veranderd is, wat dat betekent en hoe het verder gaat.',
+        tag_3ad: 'Drukkerij',
+        tag_sjoep: 'Fietsaccessoires',
+        b1_title: 'Wat er veranderd is',
+        b1_body: 'De nieuwe Europese verpakkingswetgeving voert registratie-, rapporterings- en bijdrageverplichtingen in voor iedereen die verpakte goederen op de markt brengt. Die regels gelden ongeacht hoe klein het volume is.',
+        b2_title: 'Waarom dat voor ons zwaar weegt',
+        b2_body: '3AD en Sjoepapkes zijn hobbyprojecten. Ze bestaan omdat we graag dingen maken, niet omdat er een businesscase achter zit. De administratieve en financiële last die bij de nieuwe regels komt kijken, staat eenvoudigweg niet in verhouding tot wat deze projecten opbrengen. We sluiten daarom beide webshops, zodat er geen verdere kosten blijven lopen.',
+        b3_title: 'Wat we nu doen',
+        b3_body: 'We zetten ons onderzoek verder. We brengen in kaart wat de wetgeving precies vraagt, wat naleving zou kosten en of er een werkbare vorm bestaat om verder te gaan. Dat werk loopt.',
+        b4_title: 'Komen ze terug?',
+        b4_body: 'Eerlijk: dat weten we niet. Beide projecten staan op pauze en we kunnen geen herstart beloven. Vinden we een vorm die werkt, dan laten we het hier weten.',
+        closing: 'Vragen over een bestelling of over iets dat we voor je gemaakt hebben? We zijn er nog.',
+        footer_copy: '&copy; 2026 Triple Solutions. Alle rechten voorbehouden.'
+      },
+      fr: {
+        nav_back: 'Retour à Triple Solutions',
+        pill: 'En Pause',
+        title: '3AD et Sjoepapkes sont en pause',
+        intro: 'Deux projets annexes que nous avons pris plaisir à construire. Voici ce qui a changé, ce que cela signifie et ce qui va suivre.',
+        tag_3ad: 'Imprimerie',
+        tag_sjoep: 'Accessoires Vélo',
+        b1_title: 'Ce qui a changé',
+        b1_body: 'La nouvelle législation européenne sur les emballages introduit des obligations d\'enregistrement, de déclaration et de contribution pour quiconque met des produits emballés sur le marché. Ces règles s\'appliquent quel que soit le volume, même le plus petit.',
+        b2_title: 'Pourquoi cela pèse lourd pour nous',
+        b2_body: '3AD et Sjoepapkes sont des projets passion. Ils existent parce que nous aimons créer, pas parce qu\'il y a un business case derrière. La charge administrative et financière liée aux nouvelles règles n\'est tout simplement pas proportionnée à ce que ces projets rapportent. Nous fermons donc les deux boutiques en ligne afin de ne pas laisser courir de frais supplémentaires.',
+        b3_title: 'Ce que nous faisons maintenant',
+        b3_body: 'Nous poursuivons nos recherches. Nous identifions ce que la législation exige précisément, ce que la conformité coûterait et s\'il existe une forme viable pour continuer. Ce travail est en cours.',
+        b4_title: 'Reviendront-ils ?',
+        b4_body: 'Honnêtement, nous ne le savons pas. Les deux projets sont en pause et nous ne pouvons pas promettre une reprise. Si nous trouvons une forme viable, nous le dirons ici.',
+        closing: 'Des questions sur une commande ou sur quelque chose que nous avons réalisé pour vous ? Nous sommes toujours là.',
+        footer_copy: '&copy; 2026 Triple Solutions. Tous droits réservés.'
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+      });
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          if (t[key].includes('<') || t[key].includes('&')) {
+            el.innerHTML = t[key];
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      });
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('ts-lang', lang); } catch (e) {}
+    }
+
+    try {
+      const saved = localStorage.getItem('ts-lang');
+      if (saved && translations[saved]) setLang(saved);
+    } catch (e) {}
+  </script>
+
+</body>
+</html>
