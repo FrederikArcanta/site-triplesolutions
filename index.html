@@ -230,6 +230,37 @@
     .side-card-link:hover { color: var(--blue-dark); }
     .side-card-link svg { width: 14px; height: 14px; }
 
+    /* PAUSED VENTURES — nieuwe EU-verpakkingswetgeving */
+    .side-card.is-paused { overflow: hidden; }
+    .side-card.is-paused .side-card-logo {
+      filter: grayscale(1);
+      opacity: 0.5;
+    }
+    .side-card-banner {
+      width: calc(100% + 4rem);
+      margin: -2rem -2rem 1.5rem;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, #E4322B, #B4231D);
+      color: #fff;
+      font-size: 0.66rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.6px;
+    }
+    .side-card-foot {
+      width: calc(100% + 4rem);
+      margin: auto -2rem -2rem;
+      padding: 1.1rem 1.25rem 1.25rem;
+      background: #FDF2F1;
+      border-top: 1px solid rgba(180, 35, 29, 0.18);
+    }
+    .side-card p.side-card-note {
+      font-size: 0.78rem; font-weight: 600;
+      color: #B4231D; line-height: 1.55;
+      flex: 0 0 auto;
+      margin-bottom: 0.85rem;
+    }
+    .side-card-foot .side-card-link { color: #B4231D; }
+    .side-card-foot .side-card-link:hover { color: #8C1A16; }
+
     .badge-dev {
       display: inline-block;
       background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -369,30 +400,38 @@
 
       <div class="side-grid">
         <!-- 3AD -->
-        <div class="side-card fade-up">
+        <div class="side-card fade-up is-paused">
+          <div class="side-card-banner" data-i18n="paused_badge">On Hold</div>
           <img src="logo_std.png" alt="3AD" class="side-card-logo">
           <div class="side-card-name">3AD</div>
           <div class="side-card-tag" data-i18n="3ad_tag">Printshop</div>
           <p data-i18n="3ad_desc">Because sometimes a great idea needs to be printed on a really big banner. Or a tiny business card. We don't judge.</p>
-          <div class="side-card-links">
-            <a href="https://3ad.be" class="side-card-link" target="_blank">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              <span>3ad.be</span>
-            </a>
+          <div class="side-card-foot">
+            <p class="side-card-note" data-i18n="paused_note">Currently on hold following the new EU packaging legislation. We are assessing the impact to decide whether we take these projects further.</p>
+            <div class="side-card-links">
+              <a href="https://3ad.be" class="side-card-link" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                <span>3ad.be</span>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Sjoepapkes -->
-        <div class="side-card fade-up">
+        <div class="side-card fade-up is-paused">
+          <div class="side-card-banner" data-i18n="paused_badge">On Hold</div>
           <img src="sjoepapkes.png" alt="Sjoepapkes" class="side-card-logo">
           <div class="side-card-name">Sjoepapkes</div>
           <div class="side-card-tag" data-i18n="sjoepapkes_tag">Bike Accessories</div>
           <p data-i18n="sjoepapkes_desc">Born from a love of cycling and an inability to leave well enough alone. Unique accessories for riders who believe their bike deserves a personality too.</p>
-          <div class="side-card-links">
-            <a href="https://sjoepapkes.be" class="side-card-link" target="_blank">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              <span>sjoepapkes.be</span>
-            </a>
+          <div class="side-card-foot">
+            <p class="side-card-note" data-i18n="paused_note">Currently on hold following the new EU packaging legislation. We are assessing the impact to decide whether we take these projects further.</p>
+            <div class="side-card-links">
+              <a href="https://sjoepapkes.be" class="side-card-link" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                <span>sjoepapkes.be</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -471,6 +510,8 @@
         '3ad_desc': 'Because sometimes a great idea needs to be printed on a really big banner. Or a tiny business card. We don\'t judge.',
         sjoepapkes_tag: 'Bike Accessories',
         sjoepapkes_desc: 'Born from a love of cycling and an inability to leave well enough alone. Unique accessories for riders who believe their bike deserves a personality too.',
+        paused_badge: 'On Hold',
+        paused_note: 'Currently on hold following the new EU packaging legislation. We are assessing the impact to decide whether we take these projects further.',
         drawmaster_tag: 'Mobile App',
         drawmaster_desc: 'The fairest lottery draw app you\'ll ever find — because "I\'ll just pick someone" never ends well at family gatherings.',
         drawmaster_website: 'Website',
@@ -501,6 +542,8 @@
         '3ad_desc': 'Want soms moet een geniaal idee gewoon op een heel grote banner gedrukt worden. Of een piepklein visitekaartje. Wij oordelen niet.',
         sjoepapkes_tag: 'Fietsaccessoires',
         sjoepapkes_desc: 'Geboren uit een liefde voor fietsen en het onvermogen om dingen met rust te laten. Unieke accessoires voor fietsers die vinden dat hun fiets ook een persoonlijkheid verdient.',
+        paused_badge: 'Stopgezet',
+        paused_note: 'Momenteel stopgezet naar aanleiding van de nieuwe EU-verpakkingswetgeving. We bestuderen de impact om te bepalen of we hiermee verdergaan.',
         drawmaster_tag: 'Mobiele App',
         drawmaster_desc: 'De eerlijkste loting-app die je ooit zal vinden — want "ik kies er gewoon eentje" loopt nooit goed af op familiefeestjes.',
         drawmaster_website: 'Website',
@@ -531,6 +574,8 @@
         '3ad_desc': 'Parce que parfois une idée géniale doit être imprimée sur une très grande bannière. Ou une toute petite carte de visite. On ne juge pas.',
         sjoepapkes_tag: 'Accessoires Vélo',
         sjoepapkes_desc: 'Né d\'un amour du vélo et d\'une incapacité à laisser les choses tranquilles. Des accessoires uniques pour les cyclistes qui pensent que leur vélo mérite aussi une personnalité.',
+        paused_badge: 'En Pause',
+        paused_note: 'Actuellement suspendu suite à la nouvelle législation européenne sur les emballages. Nous évaluons l\'impact afin de décider si nous poursuivons.',
         drawmaster_tag: 'Application Mobile',
         drawmaster_desc: 'L\'application de tirage au sort la plus équitable que vous trouverez — parce que "je choisis quelqu\'un" ne finit jamais bien aux réunions de famille.',
         drawmaster_website: 'Site web',
