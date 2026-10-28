@@ -181,9 +181,12 @@
 
     .side-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(6, 1fr);
       gap: 1.5rem;
     }
+    /* rij 1: drie apps; rij 2: de twee nevenprojecten, gecentreerd */
+    .side-grid > .side-card { grid-column: span 2; }
+    .side-grid > .side-card.is-paused:nth-child(4) { grid-column: 2 / span 2; }
     .side-card {
       background: var(--white);
       border-radius: var(--radius);
@@ -310,6 +313,7 @@
       .hero-logo { height: 100px; }
       .brands-main { grid-template-columns: 1fr; }
       .side-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+      .side-grid > .side-card, .side-grid > .side-card.is-paused:nth-child(4) { grid-column: auto; }
       .nav-links { display: none; }
       section { padding: 3.5rem 1.5rem; }
     }
@@ -399,6 +403,48 @@
       </div>
 
       <div class="side-grid">
+        <!-- Draw Master -->
+        <div class="side-card fade-up">
+          <img src="DrawMasterAppLogo.png" alt="Draw Master" class="side-card-logo">
+          <div class="side-card-name">Draw Master</div>
+          <div class="side-card-tag" data-i18n="drawmaster_tag">Mobile App</div>
+          <p data-i18n="drawmaster_desc">The fairest lottery draw app you'll ever find — because "I'll just pick someone" never ends well at family gatherings.</p>
+          <div class="side-card-links">
+            <a href="https://frederikarcanta.github.io/drawmaster-site/" class="side-card-link" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              <span data-i18n="drawmaster_website">Website</span>
+            </a>
+            <a href="https://apps.apple.com/be/app/draw-master-by-arcanta/id6759605260" class="side-card-link" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span data-i18n="drawmaster_appstore">Download on the App Store</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tucket -->
+        <div class="side-card fade-up">
+          <img src="TucketAppLogo.png" alt="Tucket" class="side-card-logo">
+          <div class="side-card-name">Tucket</div>
+          <span class="badge-dev" data-i18n="tucket_badge">In Development</span>
+          <div class="side-card-tag" data-i18n="tucket_tag">Mobile App</div>
+          <p data-i18n="tucket_desc">Loyalty cards, ID card and driving licence in one pocket on your iPhone. Stored on your device only — no account, no server.</p>
+          <div class="side-card-links">
+            <a href="https://frederikarcanta.github.io/tucket-site/" class="side-card-link" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              <span data-i18n="tucket_website">Website</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- OCG -->
+        <div class="side-card fade-up">
+          <img src="image2.png" alt="OCG" class="side-card-logo">
+          <div class="side-card-name">OCG</div>
+          <span class="badge-dev" data-i18n="ocg_badge">In Development</span>
+          <div class="side-card-tag" data-i18n="ocg_tag">Open Cycling Group</div>
+          <p data-i18n="ocg_desc">Finding people to ride with shouldn't be harder than the ride itself. A platform for open group rides — coming soon, once we stop cycling long enough to finish building it.</p>
+        </div>
+
         <!-- 3AD -->
         <div class="side-card fade-up is-paused">
           <div class="side-card-banner" data-i18n="paused_badge">On Hold</div>
@@ -433,33 +479,6 @@
               </a>
             </div>
           </div>
-        </div>
-
-        <!-- Draw Master -->
-        <div class="side-card fade-up">
-          <img src="DrawMasterAppLogo.png" alt="Draw Master" class="side-card-logo">
-          <div class="side-card-name">Draw Master</div>
-          <div class="side-card-tag" data-i18n="drawmaster_tag">Mobile App</div>
-          <p data-i18n="drawmaster_desc">The fairest lottery draw app you'll ever find — because "I'll just pick someone" never ends well at family gatherings.</p>
-          <div class="side-card-links">
-            <a href="https://frederikarcanta.github.io/drawmaster-site/" class="side-card-link" target="_blank">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              <span data-i18n="drawmaster_website">Website</span>
-            </a>
-            <a href="https://apps.apple.com/be/app/draw-master-by-arcanta/id6759605260" class="side-card-link" target="_blank">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              <span data-i18n="drawmaster_appstore">Download on the App Store</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- OCG -->
-        <div class="side-card fade-up">
-          <img src="image2.png" alt="OCG" class="side-card-logo">
-          <div class="side-card-name">OCG</div>
-          <span class="badge-dev" data-i18n="ocg_badge">In Development</span>
-          <div class="side-card-tag" data-i18n="ocg_tag">Open Cycling Group</div>
-          <p data-i18n="ocg_desc">Finding people to ride with shouldn't be harder than the ride itself. A platform for open group rides — coming soon, once we stop cycling long enough to finish building it.</p>
         </div>
       </div>
     </div>
@@ -517,6 +536,10 @@
         drawmaster_desc: 'The fairest lottery draw app you\'ll ever find — because "I\'ll just pick someone" never ends well at family gatherings.',
         drawmaster_website: 'Website',
         drawmaster_appstore: 'Download on the App Store',
+        tucket_badge: 'In Development',
+        tucket_tag: 'Mobile App',
+        tucket_desc: 'Loyalty cards, ID card and driving licence in one pocket on your iPhone. Stored on your device only — no account, no server.',
+        tucket_website: 'Website',
         ocg_badge: 'In Development',
         ocg_tag: 'Open Cycling Group',
         ocg_desc: 'Finding people to ride with shouldn\'t be harder than the ride itself. A platform for open group rides — coming soon, once we stop cycling long enough to finish building it.',
@@ -550,6 +573,10 @@
         drawmaster_desc: 'De eerlijkste loting-app die je ooit zal vinden — want "ik kies er gewoon eentje" loopt nooit goed af op familiefeestjes.',
         drawmaster_website: 'Website',
         drawmaster_appstore: 'Download in de App Store',
+        tucket_badge: 'In Ontwikkeling',
+        tucket_tag: 'Mobiele App',
+        tucket_desc: 'Klantenkaarten, identiteitskaart en rijbewijs in één vak op je iPhone. Alles blijft op je toestel — geen account, geen server.',
+        tucket_website: 'Website',
         ocg_badge: 'In Ontwikkeling',
         ocg_tag: 'Open Cycling Group',
         ocg_desc: 'Mensen vinden om mee te fietsen zou niet moeilijker moeten zijn dan de rit zelf. Een platform voor open groepsritten — binnenkort beschikbaar, zodra we lang genoeg stoppen met fietsen om het af te bouwen.',
@@ -583,6 +610,10 @@
         drawmaster_desc: 'L\'application de tirage au sort la plus équitable que vous trouverez — parce que "je choisis quelqu\'un" ne finit jamais bien aux réunions de famille.',
         drawmaster_website: 'Site web',
         drawmaster_appstore: 'Télécharger sur l\'App Store',
+        tucket_badge: 'En Développement',
+        tucket_tag: 'Application Mobile',
+        tucket_desc: 'Cartes de fidélité, carte d\'identité et permis de conduire à une seule place sur votre iPhone. Tout reste sur votre appareil — pas de compte, pas de serveur.',
+        tucket_website: 'Site web',
         ocg_badge: 'En Développement',
         ocg_tag: 'Open Cycling Group',
         ocg_desc: 'Trouver des gens pour rouler ensemble ne devrait pas être plus difficile que la sortie elle-même. Une plateforme pour les sorties de groupe ouvertes — bientôt disponible, dès qu\'on arrête de pédaler assez longtemps pour finir de la construire.',
