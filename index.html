@@ -311,7 +311,7 @@
     @media (max-width: 768px) {
       .hero { padding: 8rem 1.5rem 4rem; }
       .hero-logo { height: 100px; }
-      .brands-main { grid-template-columns: 1fr; }
+      .brands-main { grid-template-columns: minmax(0, 1fr); }
       .side-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
       .side-grid > .side-card, .side-grid > .side-card.is-paused:nth-child(4) { grid-column: auto; }
       .nav-links { display: none; }
@@ -630,7 +630,7 @@
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (t[key] !== undefined) {
-          if (el.getAttribute('data-i18n-html') === 'true' || t[key].includes('<')) {
+          if (el.getAttribute('data-i18n-html') === 'true' || t[key].includes('<') || t[key].includes('&')) {
             el.innerHTML = t[key];
           } else {
             el.textContent = t[key];
